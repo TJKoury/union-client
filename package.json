@@ -3,7 +3,7 @@
   "description": "Companion project to union-station",
   "author": "TJKoury <me@tjkoury.com>",
   "scripts": {
-    "dev": "node build/dev-server.js",
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
     "build": "rimraf dist && webpack --progress --hide-modules --config build/webpack.prod.conf.js",
     "test": "karma start build/karma.conf.js --single-run"
   },
