@@ -1,9 +1,11 @@
 module.exports = {
     context: __dirname,
-    entry: "./_index.js",
+    entry: {
+    app: ["./_index.js"]
+  },
     output: {
         path: __dirname,
-        filename: "index.js"
+        filename: "./index.js"
     },
     module: {
      // `loaders` is an array of loaders to use.
