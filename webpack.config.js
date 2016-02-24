@@ -14,7 +14,10 @@ module.exports = {
        {
          test: /\.vue$/, // a regex for matching all files that end in `.vue`
          loader: 'vue'   // loader to use for matched files
-       }
+       },
+       { test: /\.css$/, loader: "style-loader!css-loader" },
+       { test: /\.png$/, loader: "url-loader?limit=100000" },
+       { test: /\.jpg$/, loader: "file-loader" }
      ]
    }
 }
