@@ -8,9 +8,11 @@
     "test": "karma start build/karma.conf.js --single-run"
   },
   "dependencies": {
+    "Leaflet.DistortableImage": "git+https://github.com/publiclab/Leaflet.DistortableImage.git",
     "firebase": "^2.4.0",
     "leaflet": "^0.7.7",
     "leaflet-draw": "git+https://github.com/Leaflet/Leaflet.draw.git",
+    "leaflet.imagetransform": "git+ssh://git@github.com/TJKoury/Leaflet.imageTransform.git",
     "vue": "^1.0.16"
   },
   "devDependencies": {
