@@ -1,8 +1,11 @@
 var Vue = require('vue');
-var map = require('./components/map.vue');
 
-global.data = require('./components/data.js');
+Vue.component('sidemenu',  require('./components/sidemenu.vue'));
+Vue.component('main', require('./components/main.vue'));
+
 new Vue({
   el:'body',
-  components:[map]
+  ready:function(){
+    
+  }
 });

@@ -1,10 +1,22 @@
 <template>
-  <div id='map'></div>
-</template>
-<script>
+  <div class="grid-item">
+    <div id='map'></div>
+  </div>
 
+</template>
+<style>
+  @import '../node_modules/leaflet/dist/leaflet.css';
+  @import '../node_modules/leaflet-draw/dist/leaflet.draw.css';
+  .grid-item>#map{
+    width:600px;
+    height:400px;
+  }
+</style>
+
+<script>
 import leaflet from 'leaflet';
 import leafletdraw from '../node_modules/leaflet-draw/dist/leaflet.draw.js';
+import ui from '../services/ui.js';
 
 export default{
   name:'map-component',
@@ -26,7 +38,6 @@ export default{
     console.log('created');
   },
   ready:function(){
-
 
     leaflet.Icon.Default.imagePath = 'node_modules/leaflet/dist/images/';
 
@@ -79,15 +90,8 @@ export default{
 
 			drawnItems.addLayer(layer);
 		});
+
   }
 };
 
 </script>
-<style>
-  @import '../node_modules/leaflet/dist/leaflet.css';
-  @import '../node_modules/leaflet-draw/dist/leaflet.draw.css';
-  #map{
-    height:100vh;
-    width:100%
-  }
-</style>
