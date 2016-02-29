@@ -1,102 +1,84 @@
 <template>
-  <div id='main' class="grid">
-    <div class="grid-item">
-      <div class="grid-content">
-      <div class="grid-inner-content">
-        adf
-      </div>
-      </div>
-    </div>
-    <div class="grid-item">
-        <div class="grid-content">
-        <div class="grid-inner-content">
-          adf
-        </div>
-        </div>
-    </div>
-    <div class="grid-item">
-      <div class="grid-content">
-      <div class="grid-inner-content">
-        adf
-      </div>
-      </div>
-    </div>
-    <div class="grid-item">
-        <div class="grid-content">
-        <div class="grid-inner-content">
-          adf
-        </div>
-        </div>
-    </div>
-    <div class="grid-item">
-      <div class="grid-content">
-      <div class="grid-inner-content">
-        adf
-      </div>
-      </div>
-    </div>
-    <div class="grid-item">
-        <div class="grid-content">
-        <div class="grid-inner-content">
-          adf
-        </div>
-        </div>
-    </div>
-    <div class="grid-item">
-      <div class="grid-content">
-      <div class="grid-inner-content">
-        adf
-      </div>
-      </div>
-    </div>
-    <div class="grid-item">
-        <div class="grid-content">
-        <div class="grid-inner-content">
-          adf
-        </div>
-        </div>
-    </div>
-    <div class="grid-item">
-      <div class="grid-content">
-      <div class="grid-inner-content">
-        adf
-      </div>
-      </div>
-    </div>
-    <div class="grid-item">
-        <div class="grid-content">
-        <div class="grid-inner-content">
-          adf
-        </div>
-        </div>
-    </div>
+  <div class="grid">
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
     <map-component></map-component>
   </div>
 </template>
 <style>
-  .grid-item{
+  * { box-sizing: border-box; }
 
-    color:white
+  body { font-family: sans-serif; }
+
+  /* ---- grid ---- */
+
+  .grid {
+  background: #DDD;
+  width:100%;
+  margin:auto;
   }
-  .grid-item{
-    background:#FF2222
+
+  /* clear fix */
+  .grid:after {
+  content: '';
+  display: block;
+  clear: both;
   }
-  .grid-item>.grid-content{
-    height:60px;
-    width:60px;
+
+  /* ---- .grid-item ---- */
+
+  .grid-item {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: #C09;
+  border: 2px solid hsla(0, 0%, 0%, 0.5);
   }
-  .grid-inner-content{
-  padding:1px;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  text-align:center;
+
+  .grid-item--width2 { width: 200px; }
+  .grid-item--height2 { height: 200px; }
+
+  .grid-item:hover {
+  border-color: hsla(0, 0%, 100%, 0.5);
+  cursor: move;
+  }
+
+  .grid-item.is-dragging,
+  .grid-item.is-positioning-post-drag {
+  background: #C90;
+  z-index: 2;
+  }
+
+  .packery-drop-placeholder {
+  outline: 1px dashed hsla(0, 0%, 0%, 0.5);
+  outline-offset: -6px;
+  -webkit-transition: -webkit-transform 0.2s;
+          transition: transform 0.2s;
   }
 </style>
 <script>
 import map from './map.vue';
 import Packery from 'packery';
-import ui from '../services/ui.js';
+import ui from '../services/ui.vue';
+import dgb from 'draggabilly';
 
 export default{
   name:'main',
@@ -107,13 +89,23 @@ export default{
   },
   components:[map],
   ready:function(){
+    console.log(document.getElementsByClassName("grid")[0].style);
     ui.grid = new Packery( '.grid', {
       itemSelector: '.grid-item',
-      gutter: 10,
-      initLayout: false,
-      transitionDuration: false
+      columnWidth: 100,
+      containerStyle:{
+        height:'100vh'
+      }
     });
-    ui.grid.layout();
+
+    ui.grid.getItemElements().forEach( function( itemElem ) {
+      var draggie = new dgb( itemElem );
+      ui.grid.bindDraggabillyEvents( draggie );
+      draggie.on("dragStart", function(){
+        console.log('dragstart');
+      })
+    });
+
   },
 
 };

@@ -7,6 +7,8 @@ module.exports = {
         path: __dirname,
         filename: "./index.js"
     },
+    target:'web',
+
     module: {
      // `loaders` is an array of loaders to use.
      // here we are only configuring vue-loader
@@ -17,7 +19,8 @@ module.exports = {
        },
        { test: /\.css$/, loader: "style-loader!css-loader" },
        { test: /\.png$/, loader: "url-loader?limit=100000" },
-       { test: /\.jpg$/, loader: "file-loader" }
+       { test: /\.jpg$/, loader: "file-loader" },
+       { test: /\.js$/, loader: "transform?brfs" }
      ]
    }
 }
