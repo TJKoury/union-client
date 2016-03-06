@@ -1,6 +1,5 @@
 <template>
   <div class="grid-item grid-test">
-    <div id="draghandle" style="background:blue;width:100%;height:100%;cursor:hand"></div>
     <div id='map'></div>
   </div>
 

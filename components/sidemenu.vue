@@ -9,6 +9,7 @@ export default{
 </script>
 <style>
   #sidemenu{
+    color:white;
     position: fixed;
     width:100px;
     height:100vh;
