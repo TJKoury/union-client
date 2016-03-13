@@ -3,6 +3,7 @@
   "description": "Companion project to union-station",
   "author": "TJKoury <me@tjkoury.com>",
   "scripts": {
+    "git":"git add -A && git commit -m 'stuff' && git push",
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
     "build": "rimraf dist && webpack --progress --hide-modules",
     "test": "karma start build/karma.conf.js --single-run"
@@ -19,8 +20,7 @@
     "leaflet-draw": "git+https://github.com/Leaflet/Leaflet.draw.git",
     "leaflet.imagetransform": "git+https://git@github.com/TJKoury/Leaflet.imageTransform.git",
     "packery": "^2.0.0",
-    "vue": "^1.0.16",
-    "zepto": "git+ssh://git@github.com/madrobby/zepto.git"
+    "vue": "^1.0.16"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
