@@ -45,6 +45,8 @@ export default{
                   '<a href="#zoom3" class="resize" data-w="3" data-h="1">3x1</a>' +
                   '<a href="#zoom1" class="resize" data-w="1" data-h="2">1x2</a>' +
                   '<a href="#zoom2" class="resize" data-w="2" data-h="2">2x2</a>' +
+                  '<a href="#zoom4" class="resize" data-w="4" data-h="1">4x1</a>' +
+
                 '</div>' +
                 i +
               '</div>' +
@@ -63,7 +65,7 @@ export default{
   ready:function(){
 
     var DemoGrid = {
-      currentSize: 3,
+      currentSize:8,  //column number
       resize: function(size) {
         if (size) {
           this.currentSize = size;
@@ -81,43 +83,46 @@ export default{
           })(items[i].$element);
         }
       }
-  };
+    };
 
-  $(window).resize(function() {
-    $('#grid').gridList('reflow');
-  });
-
-  $(function() {
-    this.buildElements($('#grid'), fixtures.DEMO);
-
-    $('#grid').gridList({
-      lanes: DemoGrid.currentSize,
-      widthHeightRatio: 264 / 294,
-      heightToFontSizeRatio: 0.25,
-      onChange: function(changedItems) {
-        DemoGrid.flashItems(changedItems);
-      }
+    $(window).resize(function() {
+      $('#grid').gridList('reflow');
     });
-    $('#grid li .resize').click(function(e) {
-      e.preventDefault();
-      var itemElement = $(e.currentTarget).closest('li'),
-          itemWidth = $(e.currentTarget).data('w'),
-          itemHeight = $(e.currentTarget).data('h');
 
-      $('#grid').gridList('resizeItem', itemElement, {
-        w: itemWidth,
-        h: itemHeight
+    $(function() {
+      this.buildElements($('#grid'), fixtures.DEMO);
+
+      $('#grid').gridList({
+        direction:'vertical',
+        lanes: DemoGrid.currentSize,
+        widthHeightRatio: 1,
+        heightToFontSizeRatio: 0.25,
+        onChange: function(changedItems) {
+          DemoGrid.flashItems(changedItems);
+        }
       });
-    });
-    $('.add-row').click(function(e) {
-      e.preventDefault();
-      DemoGrid.resize(DemoGrid.currentSize + 1);
-    });
-    $('.remove-row').click(function(e) {
-      e.preventDefault();
-      DemoGrid.resize(Math.max(1, DemoGrid.currentSize - 1));
-    });
-  }.bind(this));
+      $('#grid').gridList('reflow');
+
+      $('#grid li .resize').click(function(e) {
+        e.preventDefault();
+        var itemElement = $(e.currentTarget).closest('li'),
+            itemWidth = $(e.currentTarget).data('w'),
+            itemHeight = $(e.currentTarget).data('h');
+
+        $('#grid').gridList('resizeItem', itemElement, {
+          w: itemWidth,
+          h: itemHeight
+        });
+      });
+      $('.add-row').click(function(e) {
+        e.preventDefault();
+        DemoGrid.resize(DemoGrid.currentSize + 1);
+      });
+      $('.remove-row').click(function(e) {
+        e.preventDefault();
+        DemoGrid.resize(Math.max(1, DemoGrid.currentSize - 1));
+      });
+    }.bind(this));
   },
 
 };
@@ -152,6 +157,7 @@ export default{
                         height 0.2s;
   }
     .grid li {
+      overflow:hidden;
       position: absolute;
       z-index: 1;
       font-weight: bold;
@@ -172,12 +178,13 @@ export default{
                           line-height 0.2s;
     }
     .grid li .inner {
+      overflow:hidden;
       position: absolute;
       background: #fff;
       border: 1px solid #bbb;
       top: 0;
-      bottom: 10px;
-      left: 10px;
+      bottom: 0px;
+      left: 0px;
       right: 0;
       -webkit-transition: background 3s;
               transition: background 3s;
