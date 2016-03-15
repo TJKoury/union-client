@@ -1,8 +1,5 @@
 <template>
-  <div class="header">
-      <a href="#remove-row" class="button remove-row">-</a>
-      <a href="#add-row" class="button add-row">+</a>
-    </div>
+    <sidebar-component></sidebar-component>
     <div class="grid-container">
       <ul id="grid" class="grid">
         <li class="position-highlight">
@@ -18,9 +15,11 @@
 import $ from 'jquery';
 import jqueryui from 'jquery-ui';
 import map from './map.vue';
+import sidebar from './sidebar.vue';
 import g from './thirdparty/jquery.gridList.js';
 import ui from '../services/ui.vue';
 import fixtures from './fixtures.js';
+import fontawesome from 'font-awesome-webpack';
 
 export default{
   name:'main',
@@ -30,7 +29,7 @@ export default{
       editMode:false
     };
   },
-  components:[map],
+  components:[map, sidebar],
   methods:{
     buildElements:function($gridContainer, items){
       var item, i;
@@ -112,7 +111,8 @@ export default{
         $('#grid').gridList('resizeItem', itemElement, {
           w: itemWidth,
           h: itemHeight
-        });
+        }).gridList('reflow');
+        
       });
       $('.add-row').click(function(e) {
         e.preventDefault();
@@ -140,9 +140,9 @@ export default{
   }
   .grid-container {
     position: absolute;
-    top: 66px;
-    left: 0;
-    right: 10px;
+    top: 0px;
+    left: 65px;
+    right: 0px; //really important
     bottom: 0;
     overflow: auto;
   }
