@@ -92,8 +92,8 @@
         </ul>
     </nav>
 </template>
-<style>
-
+<style lang="less">
+    @sidebar: #bbb;
     .fa-2x {
     font-size: 2em;
     }
@@ -115,7 +115,7 @@
 
     .main-menu {
     background:#fbfbfb;
-    border-right:1px solid #e5e5e5;
+    border-right:1px solid @sidebar;
     position:absolute;
     top:0;
     bottom:0;
