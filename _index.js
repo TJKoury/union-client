@@ -1,11 +1,14 @@
 var Vue = require('vue');
+var fs = require('fs');
 
-Vue.component('sidemenu',  require('./components/sidemenu.vue'));
-Vue.component('main', require('./components/main.vue'));
+var main = require('./components/main.js');
+
+Vue.component('main', Vue.extend(main.default));
 
 new Vue({
   el:'body',
+
   ready:function(){
-    
+
   }
 });

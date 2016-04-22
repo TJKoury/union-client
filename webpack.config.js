@@ -11,23 +11,43 @@ module.exports = {
         filename: "./index.js"
     },
     target:'web',
+    devtool: "#inline-source-map",
 
     module: {
-     // `loaders` is an array of loaders to use.
-     // here we are only configuring vue-loader
-     loaders: [
-       {
-         test: /\.vue$/, // a regex for matching all files that end in `.vue`
-         loader: 'vue-loader'   // loader to use for matched files
-       },
-       { test: /\.css$/, loader: "style-loader!css-loader" },
 
-       { test: /\.png$/, loader: "url-loader?limit=100000" },
-       { test: /\.jpg$/, loader: "file-loader" },
-       { test: /\.js$/, loader: "transform?brfs" },
-       { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&minetype=application/font-woff" },
-       { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" }
+      loaders: [
+        {
+          test: /\.js$/,
+          exclude: /(node_modules|bower_components)/,
+          loader: 'babel-loader?presets[]=es2015'
+        },
+        {
+          test: /\.css$/,
+          loader: "style-loader!css-loader"
+        },
+        {
+          test: /\.less$/,
+          loader: "style!css!less"
+        },
+        {
+          test: /\.png$/,
+          loader: "url-loader?limit=100000"
+        },
+        {
+          test: /\.jpg$/,
+          loader: "file-loader"
+        },
+       
+        {
+          test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+          loader: "url-loader?limit=10000&minetype=application/font-woff"
+        },
+        {
+          test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+          loader: "file-loader"
+        }
      ],
+     postLoaders: [ { loader: "transform?brfs" } ],
      plugins:[
        new webpack.ProvidePlugin({
          "$":"jquery",
