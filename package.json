@@ -5,7 +5,8 @@
   "scripts": {
     "git": "git add -A && git commit -m 'stuff' && git push",
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
-    "build": "rimraf dist && webpack --progress --hide-modules && node node_modules/inline-source-cli/dist/index.js --compress true index.html > www/index.html",
+    "build": "rimraf dist && webpack --progress --hide-modules && npm inline",
+    "inline":"node node_modules/inline-source-cli/dist/index.js --compress true index.html > www/index.html",
     "test": "karma start build/karma.conf.js --single-run"
   },
   "dependencies": {

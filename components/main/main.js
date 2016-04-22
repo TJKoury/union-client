@@ -1,12 +1,12 @@
-require("./styles/main.less");
+import mainstyle from "./main.less";
+import thirdpartystyle from "../styles/thirdparty.css";
 
 import $ from 'jquery';
 import jqueryui from 'jquery-ui';
-import sidebar from './sidebar.js';
-import g from './thirdparty/jquery.gridList.js';
-import ui from '../services/ui.js';
+import sidebar from '../sidebar/sidebar.js';
+import g from '../thirdparty/jquery.gridList.js';
+import ui from '../../services/ui.js';
 import fixtures from './fixtures.js';
-import fontawesome from 'font-awesome-webpack';
 const fs = require('fs');
 
 export default{

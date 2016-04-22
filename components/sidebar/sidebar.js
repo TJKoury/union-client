@@ -1,5 +1,5 @@
 
-require("./styles/sidebar.less");
+require("./sidebar.less");
 var fs = require('fs');
 
 module.exports = {

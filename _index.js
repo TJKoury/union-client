@@ -1,7 +1,7 @@
 var Vue = require('vue');
 var fs = require('fs');
 
-var main = require('./components/main.js');
+var main = require('./components/main/main.js');
 
 Vue.component('main', Vue.extend(main.default));
 
