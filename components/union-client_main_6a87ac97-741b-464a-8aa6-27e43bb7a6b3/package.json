@@ -1,0 +1,12 @@
+{
+    "name": "union-client_main_6a87ac97-741b-464a-8aa6-27e43bb7a6b3",
+    "version": "0.0.0",
+    "description": "empty-module",
+    "main": "index.js",
+    "scripts": {
+        "test": "test"
+    },
+    "author": "union-station-module-system",
+    "license": "ISC",
+    "id": "6a87ac97-741b-464a-8aa6-27e43bb7a6b3"
+}

@@ -1,9 +1,8 @@
+<div>
   <sidebar-component></sidebar-component>
   <div class="grid-container">
     <ul id="grid" class="grid">
-      <li class="position-highlight">
-        <div class="inner"></div>
-      </li>
+      
     </ul>
   </div>
 </div>

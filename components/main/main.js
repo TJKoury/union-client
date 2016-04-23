@@ -1,17 +1,19 @@
+"use strict";
+
 import mainstyle from "./main.less";
-import thirdpartystyle from "../styles/thirdparty.css";
+import thirdpartystyle from "./thirdparty/css/thirdparty.css";
 
 import $ from 'jquery';
 import jqueryui from 'jquery-ui';
 import sidebar from '../sidebar/sidebar.js';
-import g from '../thirdparty/jquery.gridList.js';
+import g from './thirdparty/js/jquery.gridList.js';
 import ui from '../../services/ui.js';
 import fixtures from './fixtures.js';
 const fs = require('fs');
 
 export default{
   name:'main',
-  template: fs.readFileSync('./components/templates/main.template').toString('utf8'),
+  template: fs.readFileSync('./components/main/main.template').toString('utf8'),
   data:function(){
     return {
       grid:false,
@@ -20,7 +22,11 @@ export default{
   },
   components:[sidebar],
   methods:{
-    buildElements:function($gridContainer, items){
+    registerElement:function(element){
+      
+    },
+    buildElement:function(items){
+      
       var item, i;
         for (i = 0; i < items.length; i++) {
           item = items[i];
@@ -46,8 +52,11 @@ export default{
             'data-x': item.x,
             'data-y': item.y
           });
-          $gridContainer.append($item);
+         
+         
+         
         }
+        console.log(this.$el)
     },
   },
   ready:function(){
@@ -78,7 +87,7 @@ export default{
     });
 
     $(function() {
-      this.buildElements($('#grid'), fixtures.DEMO);
+      this.buildElement(fixtures.DEMO);
 
       $('#grid').gridList({
         direction:'vertical',

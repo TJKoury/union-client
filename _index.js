@@ -1,14 +1,11 @@
-var Vue = require('vue');
-var fs = require('fs');
+import Vue from 'vue';
+import main from './components/main/main.js';
 
-var main = require('./components/main/main.js');
-
-Vue.component('main', Vue.extend(main.default));
+Vue.component('main', Vue.extend(main));
 
 new Vue({
   el:'body',
-
   ready:function(){
-
+    
   }
 });

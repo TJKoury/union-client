@@ -6,7 +6,7 @@
     "git": "git add -A && git commit -m 'stuff' && git push",
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
     "build": "rimraf dist && webpack --progress --hide-modules && npm inline",
-    "inline":"node node_modules/inline-source-cli/dist/index.js --compress true index.html > www/index.html",
+    "inline": "node node_modules/inline-source-cli/dist/index.js --compress true index.html > www/index.html",
     "test": "karma start build/karma.conf.js --single-run"
   },
   "dependencies": {
@@ -56,6 +56,7 @@
     "karma-webpack": "^1.7.0",
     "less": "^2.6.1",
     "less-loader": "^2.2.3",
+    "module-system": "git+ssh://git@github.com/TJKoury/union-station-module-system.git",
     "phantomjs-prebuilt": "^2.1.3",
     "rimraf": "^2.5.0",
     "style-loader": "^0.13.1",
