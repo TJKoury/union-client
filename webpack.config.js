@@ -11,8 +11,7 @@ module.exports = {
         filename: "./index.js"
     },
     target:'web',
-    devtool: "#inline-source-map",
-
+    devtool: 'source-map',
     module: {
 
       loaders: [

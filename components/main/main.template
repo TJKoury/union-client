@@ -1,8 +1,6 @@
 <div>
   <sidebar-component></sidebar-component>
   <div class="grid-container">
-    <ul id="grid" class="grid">
-      
-    </ul>
+    <gridcontainer></gridcontainer>
   </div>
 </div>
