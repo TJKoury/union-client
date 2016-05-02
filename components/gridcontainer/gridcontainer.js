@@ -121,7 +121,8 @@ export default{
         w: itemWidth,
         h: itemHeight
       }).gridList('reflow');
-
+      $(itemElement).attr('data-w', itemWidth);
+      $(itemElement).attr('data-h', itemHeight);
     }.bind(this));
     
     $(window).resize(function() {

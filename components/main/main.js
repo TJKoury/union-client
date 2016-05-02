@@ -8,6 +8,7 @@ import jqueryui from 'jquery-ui';
 import sidebar from '../sidebar/sidebar.js';
 import ui from '../../services/ui.js';
 import gridcontainer from '../gridcontainer/gridcontainer.js';
+import data from '../../services/data.js';
 const fs = require('fs');
 
 export default{

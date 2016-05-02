@@ -9,6 +9,11 @@
     "inline": "node node_modules/inline-source-cli/dist/index.js --compress true index.html > www/index.html",
     "test": "karma start build/karma.conf.js --single-run"
   },
+  "json-ld":{
+    "@context":[
+      "http://json-ld.org/contexts/person.jsonld"
+    ]
+  },
   "dependencies": {
     "Leaflet.DistortableImage": "git+https://github.com/publiclab/Leaflet.DistortableImage.git",
     "bootstrap": "^3.3.6",
@@ -24,7 +29,9 @@
     "leaflet": "^0.7.7",
     "leaflet-draw": "git+https://github.com/Leaflet/Leaflet.draw.git",
     "leaflet.imagetransform": "git+https://git@github.com/TJKoury/Leaflet.imageTransform.git",
+    "lz-string": "^1.4.4",
     "packery": "^2.0.0",
+    "pouchdb": "^5.3.2",
     "vue": "^1.0.16"
   },
   "devDependencies": {
