@@ -1,0 +1,15 @@
+{
+  "name": "datatable",
+  "version": "1.0.0",
+  "description": "Handsontable vue",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "TJKoury",
+  "license": "Closed",
+  "dependencies": {
+    "handsontable": "^0.24.3",
+    "moment": "^2.13.0"
+  }
+}

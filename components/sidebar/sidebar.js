@@ -3,7 +3,7 @@ require("./sidebar.less");
 var fs = require('fs');
 
 module.exports = {
-  template:fs.readFileSync('./components/templates/sidebar.template').toString('utf8'),
+  template:fs.readFileSync('./components/sidebar/sidebar.template').toString('utf8'),
   name:'sidebar-component',
   data:function(){
     return {

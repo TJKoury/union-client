@@ -1,7 +1,6 @@
 "use strict";
 
-import mainstyle from "./gridcontainer.less";
-import thirdpartystyle from "./thirdparty/css/thirdparty.css";
+import "./gridcontainer.less";
 
 import $ from 'jquery';
 import jqueryui from 'jquery-ui';
@@ -10,6 +9,7 @@ import g from './thirdparty/js/jquery.gridList.js';
 import ui from '../../services/ui.js';
 import fixtures from './fixtures.js';
 const fs = require('fs');
+import datatable from '../datatable/index.js';
 
 export default{
   name:'gridcontainer',
@@ -21,7 +21,7 @@ export default{
       editMode:false
     };
   },
-  components:[sidebar],
+  components:[sidebar, datatable],
   methods:{
     registerElement:function(element){
       
@@ -47,14 +47,14 @@ export default{
       var item, i;
         for (i = 0; i < items.length; i++) {
           item = items[i];
-                            
+               console.log(item)             
           var $item = $(
             '<li>' +
               '<div class="inner">' +
-                '<div class="controls">' +
-                  _cstring+
-                '</div>' +
-                i +
+                /*'<div class="controls">' +
+                  _cstring +
+                '</div>' +*/
+                item.el +
               '</div>' +
             '</li>'
           );
@@ -65,9 +65,10 @@ export default{
             'data-y': item.y
           });
          
-          $(this.$el).append($item)
-         
+          $(this.$el).append($item);
+                   
         }
+       this.$compile(this.$el);
        
     },
     flashItems: function(items) {
@@ -98,7 +99,7 @@ export default{
 
     /** TODO **/
 
-    this.buildElement(fixtures.DEMO);
+    this.buildElement(fixtures.dashboard);
  
     this.el.gridList({
       direction:'vertical',
@@ -129,7 +130,7 @@ export default{
       this.el.gridList('reflow');
     }.bind(this));
     
-    this.toggleEdit(true);
+    this.toggleEdit(false);
   }
 
 };
