@@ -1,10 +1,10 @@
 "use strict";
 
-import Handsontable from './node_modules/handsontable/dist/handsontable.full.min.js';
-import './node_modules/handsontable/dist/handsontable.full.css';
+import Handsontable from '../node_modules/handsontable/dist/handsontable.full.min.js';
+import '../node_modules/handsontable/dist/handsontable.full.css';
 import './style.css';
 import $ from 'jquery';
-import data from '../../services/data';
+import data from '../../../services/data';
 const fs = require('fs');
 
 export default{

@@ -9,7 +9,13 @@
   "author": "TJKoury",
   "license": "Closed",
   "dependencies": {
+    "brfs": "^1.4.3",
     "handsontable": "^0.24.3",
     "moment": "^2.13.0"
+  },
+  "devDependencies": {
+    "brfs": "^1.4.3",
+    "style-loader": "^0.13.1",
+    "transform-loader": "^0.2.3"
   }
 }

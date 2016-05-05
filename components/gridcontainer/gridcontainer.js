@@ -9,8 +9,9 @@ import g from './thirdparty/js/jquery.gridList.js';
 import ui from '../../services/ui.js';
 import fixtures from './fixtures.js';
 const fs = require('fs');
-import datatable from '../datatable/index.js';
-
+import datatable from '../datatable/lib/module.js';
+import testm from '../test/lib/module.js';
+console.log(testm);
 export default{
   name:'gridcontainer',
   template: fs.readFileSync('./components/gridcontainer/gridcontainer.template').toString('utf8'),
@@ -21,7 +22,7 @@ export default{
       editMode:false
     };
   },
-  components:[sidebar, datatable],
+  components:[sidebar, datatable, testm],
   methods:{
     registerElement:function(element){
       
